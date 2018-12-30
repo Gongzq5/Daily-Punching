@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Daily punch</title>
+
+    <!-- using online links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/sidebar-themes.css">
+</head>
+
+<body>
+    <div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <!-- sidebar-brand  -->
+                <div class="sidebar-item sidebar-brand">
+                    <a href="#">Daily punch</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-item sidebar-header">
+                    <!-- <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture">
+                    </div> -->
+                    <div class="user-info">
+                        <p><strong>User</strong></p>
+                        <p id="usernameContent" class="user-name">
+                            Default user name
+                        </p>
+                        <button id="switchUserButton" type="button" class="btn btn-secondary user-status">
+                            <i class="fa fa-user-edit"></i>
+                            <span>Click here to switch user</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- sidebar-menu  -->
+                <div class=" sidebar-item sidebar-menu">
+                    <ul>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-tasks"></i>
+                                <span>Missions</span>
+                                <!-- <span class="badge badge-pill badge-danger">New</span> -->
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a id="establishPageButton" href="#"><i class="fas fa-edit"></i>Establish</a>
+                                    </li>
+                                    <li>
+                                        <a id="punchPageButton" href="#"><i class="fas fa-check"></i>Punch</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>User</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a id="awardsPageButton" href="#"><i class="fas fa-trophy"></i>Check awards</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+        </nav>
+        <!-- sidebar-content  -->
+        <div class="page-content">
+            <div id="loginContent" class="row">
+                <div class="container">
+                    <h2> Login </h2>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="username" class="col-4 control-label bigger">username</label>
+                            <div class="col-5">
+                                <input type="text" class="form-control" id="username" 
+                                         placeholder="Please input the username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="establishMissionDescription" class="col-4 control-label">password</label>
+                            <div class="col-8">
+                                <input type="text" id="password" class="form-control"
+                                    placeholder="Please input the password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-8">
+                                <button type="submit" id="loginButton" class="btn btn-success col-4"> login </button>
+                                <button type="reset" class="btn btn-default col-4"> clear </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="container">
+                    <div id="loginAlert" class="alert alert-success col-8">
+                        指定操作成功提示信息。
+                    </div>
+                </div>
+            </div>
+            <div id="missionContent" class="row">
+                <div class="container">
+                    <h2 class="title">Establish a mission </h2>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="establishMissionName" class="col-4 control-label bigger">mission name</label>
+                            <div class="col-5">
+                                <input type="text" class="form-control" id="establishMissionName" 
+                                         placeholder="Please input the mission's name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="establishMissionDescription" class="col-4 control-label">mission description</label>
+                            <div class="col-8">
+                                <textarea id="establishMissionDescription" class="form-control" rows="5"
+                                    placeholder="Please input the description of the mission"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-8">
+                                <button type="submit" id="missionEstablishButton" class="btn btn-success col-4">Establish</button>
+                                <button type="reset" id="missionClearButton" class="btn btn-default col-4">Clear content</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="container">
+                    <div id="establishAlert" class="alert alert-success col-8">
+                        指定操作成功提示信息。
+                    </div>
+                </div>
+            </div>
+            <div id="punchContent" class="row">
+                <div class="container">
+                    <h2 class="title"> Punch! </h2>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="firstname" class="col-4 control-label bigger">mission address</label>
+                            <div class="col-5">
+                                <input type="text" class="form-control" id="missionAddress" 
+                                         placeholder="Please input the mission's address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-8">
+                                <button type="submit" id="punchSearchButton" class="btn btn-success col-4"> Search </button>
+                                <button type="reset" class="btn btn-default col-4">Clear content</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="container mb-3">
+                    <div class="card mb-3">
+                        <div id="punchTitle" class="card-header"> (Waiting for searching~~) </div>
+                        <div id="punchDescription" class="card-body"> (Waiting for searching~~) </div> 
+                    </div>
+                    <button id="signUpButton" class="btn btn-warning col-2">Sign</button>
+                    <button id="punchButton" class="btn btn-success col-2">Punch</button>
+                    <button id="quitButton" class="btn btn-danger col-2">Quit</button>
+                </div>
+
+                <div class="container">
+                    <div id="punchAlert" class="alert alert-success col-8 "></div>
+                </div>
+            </div>
+            <div id="awardsContent" class="row">
+                <div class="container pull-left">
+                    <h2 class="title"> User's Info </h2>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Award</th>
+                          <th scope="col">Amount</th>
+                          <th scope="col">Infomation</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Trees</th>
+                          <td id="treeCounts">2</td>
+                          <td>The green trees</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Flowers</th>
+                          <td id="flowerCounts">3</td>
+                          <td>The beautiful flowers</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Dogs</th>
+                          <td id="dogCounts">2</td>
+                          <td>The bark-bark dogs</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- page-content" -->
+    </div>
+    <!-- page-wrapper -->
+
+    <!-- using online scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bignumber.js/8.0.1/bignumber.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js" crossorigin="anonymous"></script>
+    <script src="public/js/main.js"></script>
+</body>
+
+</html>
